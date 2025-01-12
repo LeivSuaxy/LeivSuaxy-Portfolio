@@ -1,0 +1,37 @@
+---
+const { url, name } = Astro.props;
+---
+
+<a href={url} class="social-link" target="_blank" rel="noopener noreferrer">
+    <div class="icon">
+        <slot/>
+    </div>
+    <span class="url">{name}</span>
+</a>
+
+<style>
+    .social-link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: inherit;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .icon {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 0.5rem;
+        border-radius: 8px;
+    }
+
+    .url {
+        font-size: 1rem;
+        font-weight: bold;
+        color: #ffffff;
+    }
+</style>
