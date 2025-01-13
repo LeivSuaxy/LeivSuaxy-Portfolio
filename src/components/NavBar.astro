@@ -3,43 +3,49 @@ import HomeIcon from "./icons/HomeIcon.astro"
 import ContactIcon from "./icons/ContactIcon.astro"
 import ProjectIcon from "./icons/ProjectIcon.astro"
 import SkillsIcon from "./icons/SkillsIcon.astro"
+import AboutMeIcon from "./icons/AboutMeIcon.astro"
+
+const navbarItems = [
+    {
+        icon: HomeIcon,
+        href: '/',
+        tooltip: 'Home'
+    },
+    {
+      icon: AboutMeIcon,
+      href: 'About',
+      tooltip: 'About Me'
+    },
+    {
+        icon: ProjectIcon,
+        href: 'Projects',
+        tooltip: 'Projects'
+    },
+    {
+        icon: SkillsIcon,
+        href: 'Skills',
+        tooltip: 'Skills'
+    },
+    {
+        icon: ContactIcon,
+        href: 'Contact',
+        tooltip: 'Contact Me'
+    },
+]
 ---
 <div class="fixed bottom-5" id="dev-bar">
     <div id="bar-container">
-        <a class="item" href="/">
-            <div class="icon">
-                <HomeIcon/>
-            </div>
-            <div class="notification"></div>
-            <span class="item-tooltip"> Home </span>
-        </a>
-        <a class="item" href="Projects">
-            <div class="icon">
-                <ProjectIcon/>
-            </div>
-            <div class="notification"></div>
-            <div class="item-tooltip"> Projects </div>
-        </a>
-        <a class="item" href="Skills">
-            <div class="icon">
-                <SkillsIcon/>
-            </div>
-            <div class="notification">
-
-            </div>
-            <span class="item-tooltip">
-                Skills
-            </span>
-        </a>
-        <a class="item" href="Contact">
-            <div class="icon">
-                <ContactIcon/>
-            </div>
-            <div class="notification">
-
-            </div>
-            <span class="item-tooltip"> Contact </span>
-        </a>
+        {
+            navbarItems.map( item => (
+                    <a class="item" href={item.href}>
+                        <div class="icon">
+                            <item.icon />
+                        </div>
+                        <div class="notification"></div>
+                        <span class="item-tooltip"> {item.tooltip} </span>
+                    </a>
+            ))
+        }
     </div>
 </div>
 
