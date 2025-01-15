@@ -2,12 +2,15 @@
 const { url, name } = Astro.props;
 ---
 
-<a href={url} class="social-link" target="_blank" rel="noopener noreferrer">
+<div class="social-link">
     <div class="icon">
-        <slot/>
+        <slot />
     </div>
-    <span class="url">{name}</span>
-</a>
+    <div class="info">
+        <span class="url">{name}</span>
+        <a class="text-xl text-blue-700 hover:text-blue-500 decoration-1" href={url}>{url}</a>
+    </div>
+</div>
 
 <style>
     .social-link {
@@ -20,8 +23,8 @@ const { url, name } = Astro.props;
     }
 
     .icon {
-        width: 40px;
-        height: 40px;
+        width: 50px;
+        height: 50px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -29,9 +32,20 @@ const { url, name } = Astro.props;
         border-radius: 8px;
     }
 
+    .info {
+        display: flex;
+        flex-direction: column; /* Cambia la disposición a columna */
+    }
+
     .url {
-        font-size: 1rem;
+        font-size: 1.35rem;
+        line-height: 1.85rem;
         font-weight: bold;
         color: #ffffff;
+        margin-bottom: 0.2rem; /* Espaciado entre el nombre y el enlace */
+    }
+
+    a {
+        word-break: break-word; /* Asegura que las URLs largas se dividan si es necesario */
     }
 </style>
