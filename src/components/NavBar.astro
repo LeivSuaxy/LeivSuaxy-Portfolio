@@ -1,0 +1,217 @@
+---
+import HomeIcon from "./icons/HomeIcon.astro"
+import ContactIcon from "./icons/ContactIcon.astro"
+import ProjectIcon from "./icons/ProjectIcon.astro"
+import SkillsIcon from "./icons/SkillsIcon.astro"
+import AboutMeIcon from "./icons/AboutMeIcon.astro"
+
+const navbarItems = [
+    {
+        icon: HomeIcon,
+        href: '/',
+        tooltip: 'Home'
+    },
+    {
+        icon: AboutMeIcon,
+        href: 'About',
+        tooltip: 'About Me'
+    },
+    {
+        icon: ProjectIcon,
+        href: 'Projects',
+        tooltip: 'Projects'
+    },
+    {
+        icon: SkillsIcon,
+        href: 'Skills',
+        tooltip: 'Skills'
+    },
+    {
+        icon: ContactIcon,
+        href: 'Contact',
+        tooltip: 'Contact Me'
+    },
+]
+---
+<div class="fixed bottom-5" id="dev-bar">
+    <div id="bar-container">
+        {
+            navbarItems.map( item => (
+                    <a class="item" href={item.href}>
+                        <div class="icon">
+                            <item.icon />
+                        </div>
+                        <div class="notification"></div>
+                        <span class="item-tooltip"> {item.tooltip} </span>
+                    </a>
+            ))
+        }
+    </div>
+</div>
+
+<style>
+    #dev-bar {
+        height: 40px;
+        overflow: hidden;
+        pointer-events: auto;
+        background: linear-gradient(180deg, #13151A 0%, rgba(19, 21, 26, 0.88) 100%);
+        border: 1px solid #343841;
+        border-radius: 9999px;
+        box-shadow: 0px 0px 0px 0px rgba(19, 21, 26, 0.30), 0px 1px 2px 0px rgba(19, 21, 26, 0.29), 0px 4px 4px 0px rgba(19, 21, 26, 0.26), 0px 10px 6px 0px rgba(19, 21, 26, 0.15), 0px 17px 7px 0px rgba(19, 21, 26, 0.04), 0px 26px 7px 0px rgba(19, 21, 26, 0.01);
+    }
+
+    div {
+        display: block;
+        unicode-bidi: isolate;
+    }
+
+    #dev-bar #bar-container {
+        height: 100%;
+        display: flex;
+    }
+
+    #dev-toolbar-root #dev-bar .item {
+        opacity: 0.2;
+    }
+
+    #dev-bar .item:first-of-type {
+        border-top-left-radius: 9999px;
+        border-bottom-left-radius: 9999px;
+        width: 42px;
+        padding-left: 4px;
+    }
+
+    #dev-bar .item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 44px;
+        border: 0;
+        background: transparent;
+        color: white;
+        font-family: system-ui, sans-serif;
+        font-size: 1rem;
+        line-height: 1.2;
+        white-space: nowrap;
+        text-decoration: none;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+        transition: opacity 0.2s ease-out 0s;
+    }
+
+    a {
+        appearance: auto;
+        text-rendering: auto;
+        color: buttontext;
+        letter-spacing: normal;
+        word-spacing: normal;
+        line-height: normal;
+        text-transform: none;
+        text-indent: 0px;
+        text-shadow: none;
+        display: inline-block;
+        text-align: center;
+        align-items: flex-start;
+        cursor: default;
+        box-sizing: border-box;
+        background-color: buttonface;
+        margin: 0em;
+        padding-block: 1px;
+        padding-inline: 6px;
+        border-width: 2px;
+        border-style: outset;
+        border-color: buttonborder;
+        border-image: initial;
+    }
+
+    #dev-bar .item .icon {
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        max-width: 20px;
+        max-height: 20px;
+        user-select: none;
+    }
+
+    #dev-bar .item .notification {
+        display: none;
+        position: absolute;
+        top: -4px;
+        right: -6px;
+        width: 10px;
+        height: 10px;
+    }
+
+    #dev-bar .separator {
+        background: rgba(52, 56, 65, 1);
+        width: 1px;
+    }
+
+    #dev-bar #bar-container .item:hover, #dev-bar #bar-container .item:focus-visible {
+        background: #FFFFFF20;
+        cursor: pointer;
+        outline-offset: -3px;
+    }
+
+    #dev-toolbar-root #dev-bar .item {
+        opacity: 0.2;
+    }
+
+    #dev-bar .item:first-of-type {
+        border-top-left-radius: 9999px;
+        border-bottom-left-radius: 9999px;
+        width: 42px;
+        padding-left: 4px;
+    }
+
+    #dev-bar .item .icon>svg {
+        width: 20px;
+        height: 20px;
+        display: block;
+        margin: auto;
+    }
+
+    #dev-bar .item .icon>svg {
+        width: 20px;
+        height: 20px;
+        display: block;
+        margin: auto;
+    }
+
+    svg:not(:root) {
+        overflow-clip-margin: content-box;
+        overflow: hidden;
+    }
+
+    #dev-bar #bar-container .item-tooltip {
+        background: linear-gradient(0deg, #13151A, #13151A), linear-gradient(0deg, #343841, #343841);
+        border: 1px solid rgba(52, 56, 65, 1);
+        border-radius: 4px;
+        padding: 4px 8px;
+        position: absolute;
+        top: -38px;
+        font-size: 14px;
+        opacity: 1;
+        transition: opacity 0.2s ease-in-out;
+        pointer-events: none;
+        user-select: none;
+    }
+
+    #dev-bar #bar-container .item:hover + .item-tooltip {
+        opacity: 1;
+    }
+
+    #dev-bar #bar-container .item-tooltip::after {
+        content: '';
+        position: absolute;
+        left: calc(50% - 5px);
+        bottom: -6px;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid #343841;
+    }
+</style>
+
+
+
