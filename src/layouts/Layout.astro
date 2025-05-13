@@ -1,6 +1,3 @@
----
-import NavBar from "../components/NavBar.astro"
----
 <!doctype html>
 <html lang="en">
 	<head>
@@ -11,17 +8,15 @@ import NavBar from "../components/NavBar.astro"
 		<title>Astro Basics</title>
 	</head>
 	<body>
-
 		<slot />
-		<div class="flex justify-center items-center">
-			<NavBar />
-		</div>
-
 	</body>
 </html>
 
 <style>
+	html,
 	body {
-		background-color: #030712;
+		margin: 0;
+		width: 100%;
+		height: 100%;
 	}
 </style>
