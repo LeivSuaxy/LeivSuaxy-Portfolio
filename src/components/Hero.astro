@@ -1,0 +1,58 @@
+---
+import SocialButton from "./SocialButton.astro";
+import GitHubIcon from "./icons/GitHubIcon.astro";
+import LinkedinIcon from "./icons/LinkedinIcon.astro";
+const githubImageUrl = "https://github.com/LeivSuaxy.png";
+
+const socialItems = [
+    {
+        icon: GitHubIcon,
+        href: "https://github.com/LeivSuaxy",
+        label: "GitHub"
+    },
+    {
+        icon: LinkedinIcon,
+        href: "https://www.linkedin.com/in/leivsuaxy",
+        label: "LinkedIn"
+    }
+];
+---
+
+<section class="flex flex-col min-h-screen items-center justify-center bg-[#13151A] text-center md:text-left p-6 gap-6">
+    <!-- Contenedor combinado de texto e imagen -->
+    <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+        <!-- Texto -->
+        <div class="max-w-md">
+            <h1 class="text-4xl font-bold text-gray-100 mb-4">
+                Hi, I'm LeivSuaxy
+            </h1>
+            <h2 class="text-2xl font-bold text-gray-100 mb-2">
+                Backend Web Developer
+            </h2>
+            <p class="text-lg text-gray-400 mb-4">
+                As a backend web developer, I thrive on building reliable APIs and services,
+                while also creating scripts that automate repetitive tasks and streamline operations.
+                I’m passionate about writing clean, maintainable code and architecting solutions that scale effortlessly as
+                projects grow.
+            </p>
+        </div>
+
+        <!-- Imagen -->
+        <div class="flex-none">
+            <img
+                    src={githubImageUrl}
+                    alt="Your profile picture"
+                    class="w-72 h-72 rounded-full shadow-lg"
+            />
+        </div>
+    </div>
+
+    <!-- Botones sociales debajo -->
+    <div class="flex flex-row gap-4 mt-4">
+        {
+            socialItems.map((item) => (
+                    <SocialButton icon={item.icon} href={item.href} label={item.label} />
+            ))
+        }
+    </div>
+</section>
