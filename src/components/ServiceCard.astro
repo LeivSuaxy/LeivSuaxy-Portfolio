@@ -1,0 +1,109 @@
+---
+export interface Props {
+    icon: any;
+    title: string;
+    description: string;
+    categories: string[];
+}
+
+
+const { icon: Icon, title, description, categories } = Astro.props;
+---
+
+<div class="card">
+    <div class="icon-container">
+        <Icon class="service-icon" />
+    </div>
+    <div class="main-content">
+        <p class="heading text-center">{title}</p>
+        <div class="categories">
+            {
+                categories.map( category => (
+                    <span>{category}</span>
+                ))
+            }
+        </div>
+        <p class="font-bold mt-4">
+            {description}
+        </p>
+    </div>
+</div>
+
+
+<style>
+    .card {
+        width: 320px;
+        height: 350px;
+        padding: 20px;
+        color: white;
+        background: #343841;
+        border: 2px solid #343841;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        transform-origin: right bottom;
+        transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+    }
+
+    .card .main-content {
+        flex: 1;
+    }
+
+    .card .header span:first-child {
+        font-weight: 600;
+        color: #717171;
+        margin-right: 4px;
+    }
+
+    .card .heading {
+        font-size: 24px;
+        margin: 24px 0 16px;
+        font-weight: 600;
+    }
+
+    .card .categories {
+        display: flex;
+        flex-wrap: wrap; /* Permite que las categorías salten a la siguiente línea */
+        gap: 8px;
+        max-width: 100%; /* Asegura que las categorías no excedan el ancho de la card */
+    }
+
+    .card .categories span {
+        background-color: #21252E;
+        padding: 4px 8px;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 12px;
+        border-radius: 50em;
+        margin-bottom: 2px; /* Espacio adicional entre filas de categorías */
+    }
+
+    .card .footer {
+        font-weight: 600;
+        color: #717171;
+        margin-right: 4px;
+    }
+
+    p {
+        color: #f6f6f6;
+    }
+
+    .icon-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 16px;
+        background-color: #21252E;
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    :global(.service-icon) {
+        width: 48px;
+        height: 48px;
+        color: #f6f6f6;
+    }
+</style>

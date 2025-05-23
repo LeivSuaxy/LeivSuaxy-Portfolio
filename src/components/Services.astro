@@ -1,3 +1,96 @@
 ---
+import ServiceCard from "./ServiceCard.astro";
+import ApiIcon from "./icons/ApiIcon.astro";
+import W3Icon from "./icons/W3Icon.astro";
+import TelegramIcon from "./icons/TelegramIcon.astro";
+import TerminalIcon from "./icons/TerminalIcon.astro";
+import DatabaseIcon from "./icons/DatabaseIcon.astro";
+import DesktopIcon from "./icons/DesktopIcon.astro"
+
+const cards = [
+    {
+        icon: W3Icon,
+        title: "Web Systems",
+        description: "I build web systems that are fast, reliable, and easy to maintain.",
+        categories: [
+            "ASP.NET",
+            "Django",
+            "Nestjs"
+        ]
+    },
+    {
+        icon: ApiIcon,
+        title: "API Builder",
+        description: "I create APIs that are fast, reliable, and easy to use.",
+        categories: [
+            "DRF",
+            "ASP.NET",
+            "Express",
+            "Nestjs",
+            "FastAPI"
+        ]
+    },
+    {
+        icon: TelegramIcon,
+        title: "Telegram Bots",
+        description: "I create Telegram bots that are fast, reliable, and easy to use.",
+        categories: [
+            "Python",
+            ".NET",
+            "Nodejs"
+        ]
+    },
+    {
+        icon: TerminalIcon,
+        title: "Automated Scripts",
+        description: "I create scripts that automate repetitive tasks and streamline operations.",
+        categories: [
+            "Python",
+            "Nodejs",
+            "Bash"
+        ]
+    },
+    {
+        icon: DatabaseIcon,
+        title: "Scalable Databases",
+        description: "I design and implement databases that are fast, reliable, and easy to scale.",
+        categories: [
+            "PostgreSQL",
+            "MongoDB",
+            "MySQL"
+        ]
+    },
+    {
+        icon: DesktopIcon,
+        title: "Desktop Solutions",
+        description: "I create desktop applications that are fast, reliable, and easy to use.",
+        categories: [
+            ".NET",
+            "Java"
+        ]
+    }
+]
+
 
 ---
+
+<div class="container mx-auto px-4">
+    <h1 class="text-4xl font-bold text-gray-100 mb-4 text-center mx-auto max-w-2xl">
+        What I Can Do for You?
+    </h1>
+    <h2 class="text-3xl font-bold text-gray-100 mb-4 text-center mx-auto max-w-2xl">First things first</h2>
+    <p class="text-lg text-gray-400 mb-8 text-center mx-auto max-w-2xl">
+        As a software engineer, I design and implement clean,
+        scalable solutions to address today's most pressing challenges.
+        By prioritizing code quality and maintainability,
+        I ensure each product not only meets but exceeds my clients' expectations.
+    </p>
+
+    <div class="flex flex-wrap justify-center gap-8 mt-10">
+        {
+            cards.map((card) => (
+                    <ServiceCard icon={card.icon} title={card.title} description={card.description} categories={card.categories} />
+            ))
+        }
+    </div>
+</div>

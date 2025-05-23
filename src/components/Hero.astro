@@ -2,6 +2,7 @@
 import SocialButton from "./SocialButton.astro";
 import GitHubIcon from "./icons/GitHubIcon.astro";
 import LinkedinIcon from "./icons/LinkedinIcon.astro";
+import XIcon from "./icons/XIcon.astro";
 const githubImageUrl = "https://github.com/LeivSuaxy.png";
 
 const socialItems = [
@@ -14,6 +15,11 @@ const socialItems = [
         icon: LinkedinIcon,
         href: "https://www.linkedin.com/in/leivsuaxy",
         label: "LinkedIn"
+    },
+    {
+        icon: XIcon,
+        href: " ",
+        label: "Twitter",
     }
 ];
 ---
@@ -21,6 +27,14 @@ const socialItems = [
 <section class="flex flex-col min-h-screen items-center justify-center bg-[#13151A] text-center md:text-left p-6 gap-6">
     <!-- Contenedor combinado de texto e imagen -->
     <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+        <!-- Imagen -->
+        <div class="flex-none">
+            <img
+                    src={githubImageUrl}
+                    alt="Your profile picture"
+                    class="w-72 h-72 rounded-full shadow-lg"
+            />
+        </div>
         <!-- Texto -->
         <div class="max-w-md">
             <h1 class="text-4xl font-bold text-gray-100 mb-4">
@@ -35,15 +49,6 @@ const socialItems = [
                 I’m passionate about writing clean, maintainable code and architecting solutions that scale effortlessly as
                 projects grow.
             </p>
-        </div>
-
-        <!-- Imagen -->
-        <div class="flex-none">
-            <img
-                    src={githubImageUrl}
-                    alt="Your profile picture"
-                    class="w-72 h-72 rounded-full shadow-lg"
-            />
         </div>
     </div>
 
