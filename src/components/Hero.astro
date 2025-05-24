@@ -28,11 +28,16 @@ const socialItems = [
     <!-- Contenedor combinado de texto e imagen -->
     <div class="flex flex-col md:flex-row items-center justify-center gap-6">
         <!-- Imagen -->
-        <div class="flex-none">
+        <div class="flex-none relative w-72 h-72">
+            <!-- Skeleton loader -->
+            <div class="absolute inset-0 rounded-full bg-gray-700 animate-pulse"></div>
+
+            <!-- Actual image -->
             <img
                     src={githubImageUrl}
                     alt="Your profile picture"
-                    class="w-72 h-72 rounded-full shadow-lg"
+                    class="w-72 h-72 rounded-full shadow-lg opacity-0 transition-opacity duration-300 absolute inset-0"
+                    onload="this.classList.remove('opacity-0')"
             />
         </div>
         <!-- Texto -->
@@ -43,6 +48,9 @@ const socialItems = [
             <h2 class="text-2xl font-bold text-gray-100 mb-2">
                 Backend Web Developer
             </h2>
+            <p class="text-sm text-gray-500 mb-4">
+                2+ years as a software developer
+            </p>
             <p class="text-lg text-gray-400 mb-4">
                 As a backend web developer, I thrive on building reliable APIs and services,
                 while also creating scripts that automate repetitive tasks and streamline operations.
