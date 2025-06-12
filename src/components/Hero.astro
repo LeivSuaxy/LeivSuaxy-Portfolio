@@ -3,7 +3,7 @@ import SocialButton from "./SocialButton.astro";
 import GitHubIcon from "./icons/GitHubIcon.astro";
 import LinkedinIcon from "./icons/LinkedinIcon.astro";
 import XIcon from "./icons/XIcon.astro";
-const githubImageUrl = "https://github.com/LeivSuaxy.png";
+const githubImageUrl = "Perfil.jpeg";
 
 const socialItems = [
     {
@@ -18,7 +18,7 @@ const socialItems = [
     },
     {
         icon: XIcon,
-        href: " ",
+        href: "https://x.com/leivsuaxy",
         label: "Twitter",
     }
 ];
@@ -68,4 +68,40 @@ const socialItems = [
             ))
         }
     </div>
+    <a
+            href="/Javier%20Leiva%20-%20CV.pdf"
+            download
+            class="px-4 py-2 cv bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors flex items-center gap-2"
+    >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+        Download CV
+    </a>
 </section>
+
+<style>
+    .cv {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;      /* 12px */
+    padding: 0.625rem 0.9375rem; /* 10px 15px */
+    background: transparent;
+    outline: 3px #343841 solid;
+    outline-offset: -3px;
+    border: none;
+    border-radius: 0.3125rem; /* 5px */
+    cursor: pointer;
+    transition: background-color 0.4s;
+}
+.cv .text {
+    font-weight: 700;
+    font-size: 1rem;
+    transition: color 0.4s;
+}
+/* ahora el SVG se colorea por currentColor, así que no necesitas selector extra */
+.cv:hover {
+    background-color: #ffffff20;
+    color: #f6f6f6;
+}
+</style>

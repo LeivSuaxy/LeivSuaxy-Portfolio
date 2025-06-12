@@ -1,5 +1,18 @@
 ---
+import { Image } from 'astro:assets';
 import ProjectIcon from "./icons/ProjectIcon.astro"
+import ExperienceCard from "./ExperienceCard.astro";
+import esakiImage from "../../public/esaki.png";
+
+const experienceCards = [
+    {
+        image: esakiImage,
+        title: "Es Aki Backend System",
+        category: "E-Commerce",
+        description: "System built on Nestjs with Payments integration, OAuth, and a custom admin panel.",
+        url: "https://esaki-jrr.com",
+    },
+]
 ---
 
 <div class="container mx-auto px-4">
@@ -8,5 +21,18 @@ import ProjectIcon from "./icons/ProjectIcon.astro"
         <h1 class="text-4xl font-bold text-gray-100">
             Experience
         </h1>
+    </div>
+    <div class="flex justify-center px-4 mt-3">
+        {
+            experienceCards.map((card) => (
+                <ExperienceCard
+                    image={card.image}
+                    title={card.title}
+                    category={card.category}
+                    description={card.description}
+                    url={card.url}
+                />
+            ))
+        }
     </div>
 </div>

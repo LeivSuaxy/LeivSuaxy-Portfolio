@@ -1,0 +1,84 @@
+---
+import { Image } from "astro:assets";
+
+export interface Props {
+    image: any;
+    title: string;
+    category: string;
+    description: string;
+    url: string;
+}
+
+const { image, title, category, description, url } = Astro.props;
+---
+
+<div class="card">
+    <Image src={image} alt="default alt"/>
+    <!--<img src={url} alt="Big Ben" />-->
+    <div class="card-content">
+        <div class="category">{ category }</div>
+        <div class="title">
+            { title }
+        </div>
+        <div class="dev-mode">
+            Startup
+        </div>
+        <div class="description">
+            { description }
+        </div>
+        <a href={url} target="_blank">Visit Site</a>
+    </div>
+</div>
+
+<style>
+    .card {
+        display: flex;
+        background-color: #343841;
+        color: #f6f6f6;
+        border-radius: 16px;
+        overflow: hidden;
+        max-width: 700px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .card img {
+        width: 300px;
+        object-fit: cover;
+    }
+
+    .card-content {
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .category {
+        font-weight: bold;
+        margin-bottom: 4px;
+    }
+
+    .title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin: 8px 0;
+    }
+
+    .dev-mode {
+        font-size: 0.9rem;
+        color: #ccc;
+        margin-bottom: 12px;
+    }
+
+    .description {
+        font-size: 0.9rem;
+        color: #ccc;
+    }
+
+    .card-content a {
+        margin-top: 12px;
+        text-decoration: underline;
+        color: #1598c0;
+        font-weight: bold;
+    }
+</style>
