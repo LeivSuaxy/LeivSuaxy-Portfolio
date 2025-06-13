@@ -1,5 +1,51 @@
 ---
 import CodeIcon from "./icons/CodeIcon.astro"
+import ProjectCard from "./ProjectCard.astro";
+
+interface Project {
+    title: string;
+    description: string;
+    tags: string[];
+    githubUrl?: string;
+    liveUrl?: string;
+    images?: string[];
+}
+
+const projects: Project[] = [
+    {
+        title: "RFIDentity",
+        description: "A comprehensive RFID-based identity management system for secure access control and user authentication.",
+        tags: ["Arduino", "Rust", "Python", "Qt", "SQLite"],
+        githubUrl: "https://github.com/LeivSuaxy/IoT-Final-Project",
+        images: [
+            "projects/rfidentity/1.png",
+            "projects/rfidentity/2.png",
+        ]
+    },
+    {
+        title: "pytoque",
+        description: "A Python library for manage petitions to the Eltoque API or scrap the website",
+        tags: ["Python"],
+        githubUrl: "https://github.com/LeivSuaxy/pytoque",
+        liveUrl: "https://pypi.org/project/pytoque/",
+        images: [
+
+        ]
+    },
+    {
+        title: "E-vent Horizon",
+        description: "E-vent Horizon is a web application with the purpose of managing events and managing their assistance.",
+        tags: ["React", "Nextjs", "C#", "ASP.NET", "PostgreSQL"],
+        githubUrl: "https://github.com/LeivSuaxy/e-vent-horizon-backend",
+        liveUrl: "https://school-project-black-psi.vercel.app/",
+        images: [
+            "projects/event-horizon/1.png",
+            "projects/event-horizon/2.png",
+            "projects/event-horizon/3.png",
+            "projects/event-horizon/4.png",
+        ]
+    }
+]
 ---
 
 <div class="container mx-auto px-4">
@@ -9,7 +55,18 @@ import CodeIcon from "./icons/CodeIcon.astro"
             Projects
         </h1>
     </div>
-    <div class="flex justify-center px-4 mt-3">
-
+    <div class="container flex items-center justify-center">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 mt-3">
+            {projects.map(project => (
+                    <ProjectCard
+                            title={project.title}
+                            description={project.description}
+                            tags={project.tags}
+                            githubUrl={project.githubUrl}
+                            liveUrl={project.liveUrl}
+                            images={project.images}
+                    />
+            ))}
+        </div>
     </div>
 </div>
