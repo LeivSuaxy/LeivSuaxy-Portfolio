@@ -1,0 +1,53 @@
+---
+// Define the technologies you want to showcase
+const technologies = [
+  'js', 'ts', 'react', 'nodejs', 'express', 'nextjs',
+  'html', 'css', 'tailwind', 'mongodb', 'mysql', 'postgres',
+  'git', 'github', 'vscode', 'docker', 'aws', 'firebase'
+];
+
+// You can organize them by categories if desired
+const categories = [
+  {
+    name: "Frontend",
+    skills: ['js', 'ts', 'react', 'html', 'css', 'tailwind', 'nextjs']
+  },
+  {
+    name: "Backend",
+    skills: ['nodejs', 'express', 'mongodb', 'mysql', 'postgres', 'firebase']
+  },
+  {
+    name: "Tools",
+    skills: ['git', 'github', 'vscode', 'docker', 'aws']
+  }
+];
+---
+
+<section id="stack" class="container mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold text-white mb-2">Technical Stack</h2>
+    <div class="h-1 w-20 bg-blue-600 mb-8"></div>
+
+    <p class="text-gray-400 mb-12 max-w-3xl">
+        These are the technologies I specialize in and use regularly in my projects.
+    </p>
+
+    <!-- Option 1: Display all technologies in a single grid -->
+    <div class="bg-[#1E2028] p-6 rounded-lg shadow-lg mb-16">
+        <h3 class="text-xl font-semibold text-gray-200 mb-6">My Technology Stack</h3>
+        <div class="flex flex-wrap justify-center gap-4">
+            <img src={`https://skillicons.dev/icons?i=${technologies.join(',')}`} alt="Technology Stack" />
+        </div>
+    </div>
+
+    <!-- Option 2: Display by categories -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {categories.map(category => (
+            <div class="bg-[#1E2028] p-6 rounded-lg shadow-lg">
+                <h3 class="text-xl font-semibold text-gray-200 mb-6">{category.name}</h3>
+                <div class="flex flex-wrap justify-center">
+                    <img src={`https://skillicons.dev/icons?i=${category.skills.join(',')}`} alt={`${category.name} Skills`} />
+                </div>
+            </div>
+        ))}
+    </div>
+</section>
