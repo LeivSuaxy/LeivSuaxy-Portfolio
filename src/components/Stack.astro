@@ -1,53 +1,44 @@
 ---
-// Define the technologies you want to showcase
-const technologies = [
-  'js', 'ts', 'react', 'nodejs', 'express', 'nextjs',
-  'html', 'css', 'tailwind', 'mongodb', 'mysql', 'postgres',
-  'git', 'github', 'vscode', 'docker', 'aws', 'firebase'
-];
-
-// You can organize them by categories if desired
 const categories = [
   {
     name: "Frontend",
-    skills: ['js', 'ts', 'react', 'html', 'css', 'tailwind', 'nextjs']
+    skills: ['html', 'css', 'js', 'tailwind', 'ts', 'astro']
   },
   {
     name: "Backend",
-    skills: ['nodejs', 'express', 'mongodb', 'mysql', 'postgres', 'firebase']
+    skills: ['python', 'cs', 'cpp', 'net', 'django', 'fastapi', 'nestjs']
   },
   {
     name: "Tools",
-    skills: ['git', 'github', 'vscode', 'docker', 'aws']
+    skills: ['git', 'docker', 'postgres', 'redis', 'mongodb', 'arduino']
   }
 ];
 ---
 
 <section id="stack" class="container mx-auto px-4 py-16">
-    <h2 class="text-3xl font-bold text-white mb-2">Technical Stack</h2>
-    <div class="h-1 w-20 bg-blue-600 mb-8"></div>
-
-    <p class="text-gray-400 mb-12 max-w-3xl">
+    <h2 class="text-4xl font-bold text-gray-100 mb-4 text-center mx-auto max-w-2xl">Technical Stack</h2>
+    <p class="text-lg text-gray-400 mb-12 text-center mx-auto max-w-2xl">
         These are the technologies I specialize in and use regularly in my projects.
     </p>
 
-    <!-- Option 1: Display all technologies in a single grid -->
-    <div class="bg-[#1E2028] p-6 rounded-lg shadow-lg mb-16">
-        <h3 class="text-xl font-semibold text-gray-200 mb-6">My Technology Stack</h3>
-        <div class="flex flex-wrap justify-center gap-4">
-            <img src={`https://skillicons.dev/icons?i=${technologies.join(',')}`} alt="Technology Stack" />
-        </div>
-    </div>
-
-    <!-- Option 2: Display by categories -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {categories.map(category => (
-            <div class="bg-[#1E2028] p-6 rounded-lg shadow-lg">
-                <h3 class="text-xl font-semibold text-gray-200 mb-6">{category.name}</h3>
-                <div class="flex flex-wrap justify-center">
-                    <img src={`https://skillicons.dev/icons?i=${category.skills.join(',')}`} alt={`${category.name} Skills`} />
+                <div class="group bg-gradient-to-br from-[#1E2028] to-[#2A2D3A] p-8 rounded-xl shadow-xl border border-gray-700 hover:border-purple-500 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/20 hover:-translate-y-2">
+                    <div class="flex items-center mb-6">
+                        <div class="w-3 h-3 bg-purple-500 rounded-full mr-3 group-hover:bg-purple-400 transition-colors duration-300"></div>
+                        <h3 class="text-2xl font-bold text-gray-200 group-hover:text-white transition-colors duration-300">{category.name}</h3>
+                    </div>
+                    <div class="flex flex-wrap justify-center bg-transparent p-4 rounded-lg">
+                        <img
+                                src={`https://skillicons.dev/icons?i=${category.skills.join(',')}&theme=dark`}
+                                alt={`${category.name} Skills`}
+                                class="transition-transform duration-300 group-hover:scale-105"
+                        />
+                    </div>
+                    <div class="mt-4 text-center">
+                        <span class="text-sm text-purple-400 font-medium">{category.skills.length} technologies</span>
+                    </div>
                 </div>
-            </div>
         ))}
     </div>
 </section>

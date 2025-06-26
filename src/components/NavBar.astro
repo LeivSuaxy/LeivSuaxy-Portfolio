@@ -8,27 +8,27 @@ import AboutMeIcon from "./icons/AboutMeIcon.astro"
 const navbarItems = [
     {
         icon: HomeIcon,
-        href: '/',
+        href: '#main',
         tooltip: 'Home'
     },
     {
         icon: AboutMeIcon,
-        href: 'About',
+        href: '#services',
         tooltip: 'About Me'
     },
     {
         icon: ProjectIcon,
-        href: 'Projects',
+        href: '#projects',
         tooltip: 'Projects'
     },
     {
         icon: SkillsIcon,
-        href: 'Skills',
+        href: '#stack',
         tooltip: 'Skills'
     },
     {
         icon: ContactIcon,
-        href: 'Contact',
+        href: '#contact',
         tooltip: 'Contact Me'
     },
 ]
@@ -213,5 +213,20 @@ const navbarItems = [
     }
 </style>
 
+<script>
+    document.querySelectorAll('#bar-container a').forEach(anchor => {
+        anchor.addEventListener('click', function(this: HTMLAnchorElement, e: Event) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
 
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+</script>
 
