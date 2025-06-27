@@ -1,30 +1,11 @@
 ---
-import SocialButton from "./SocialButton.astro";
 import GitHubIcon from "./icons/GitHubIcon.astro";
 import LinkedinIcon from "./icons/LinkedinIcon.astro";
 import XIcon from "./icons/XIcon.astro";
 const githubImageUrl = "Perfil.jpeg";
-
-const socialItems = [
-    {
-        icon: GitHubIcon,
-        href: "https://github.com/LeivSuaxy",
-        label: "GitHub"
-    },
-    {
-        icon: LinkedinIcon,
-        href: "https://www.linkedin.com/in/leivsuaxy",
-        label: "LinkedIn"
-    },
-    {
-        icon: XIcon,
-        href: "https://x.com/leivsuaxy",
-        label: "Twitter",
-    }
-];
 ---
 
-<section class="flex flex-col min-h-screen items-center justify-center bg-[#13151A] text-center md:text-left p-6 gap-6">
+<section id="main" class="flex flex-col min-h-screen items-center justify-center bg-[#13151A] text-center md:text-left p-6 gap-6">
     <!-- Contenedor combinado de texto e imagen -->
     <div class="flex flex-col md:flex-row items-center justify-center gap-6">
         <!-- Imagen -->
@@ -60,14 +41,6 @@ const socialItems = [
         </div>
     </div>
 
-    <!-- Botones sociales debajo -->
-    <div class="flex flex-row gap-4 mt-4">
-        {
-            socialItems.map((item) => (
-                    <SocialButton icon={item.icon} href={item.href} label={item.label} />
-            ))
-        }
-    </div>
     <a
             href="/Javier%20Leiva%20-%20CV.pdf"
             download
@@ -78,6 +51,15 @@ const socialItems = [
         </svg>
         Download CV
     </a>
+
+    <div class="flex flex-col items-center mt-50">
+        <p class="text-sm text-gray-500 mb-2">See more</p>
+        <div class="animate-bounce cursor-pointer" onclick="window.scrollBy({top: window.innerHeight * 0.8, behavior: 'smooth'})">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-400 hover:text-purple-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+        </div>
+    </div>
 </section>
 
 <style>

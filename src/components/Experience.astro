@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import ProjectIcon from "./icons/ProjectIcon.astro"
+import ExperienceIcon from "./icons/ExperienceIcon.astro"
 import ExperienceCard from "./ExperienceCard.astro";
 import esakiImage from "../../public/esaki.png";
 
@@ -15,9 +15,9 @@ const experienceCards = [
 ]
 ---
 
-<div class="container mx-auto px-4">
+<section id="experience" class="container mx-auto px-4">
     <div class="flex items-center justify-center gap-4 mb-6">
-        <ProjectIcon class="w-10 h-10" />
+        <ExperienceIcon class="w-10 h-10" />
         <h1 class="text-4xl font-bold text-gray-100">
             Experience
         </h1>
@@ -35,4 +35,4 @@ const experienceCards = [
             ))
         }
     </div>
-</div>
+</section>

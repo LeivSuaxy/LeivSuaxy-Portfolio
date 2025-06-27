@@ -1,44 +1,48 @@
 ---
-const categories = [
-  {
-    name: "Frontend",
-    skills: ['html', 'css', 'js', 'tailwind', 'ts', 'astro']
-  },
-  {
-    name: "Backend",
-    skills: ['python', 'cs', 'cpp', 'net', 'django', 'fastapi', 'nestjs']
-  },
-  {
-    name: "Tools",
-    skills: ['git', 'docker', 'postgres', 'redis', 'mongodb', 'arduino']
-  }
-];
----
+    import CodeIcon from "./icons/CodeIcon.astro";
+    const categories = [
+      {
+        name: "Frontend",
+        skills: ['html', 'css', 'js', 'tailwind', 'ts', 'astro']
+      },
+      {
+        name: "Backend",
+        skills: ['python', 'cs', 'cpp', 'net', 'django', 'fastapi', 'nestjs']
+      },
+      {
+        name: "Tools",
+        skills: ['git', 'docker', 'postgres', 'redis', 'mongodb', 'arduino']
+      }
+    ];
+    ---
 
-<section id="stack" class="container mx-auto px-4 py-16">
-    <h2 class="text-4xl font-bold text-gray-100 mb-4 text-center mx-auto max-w-2xl">Technical Stack</h2>
-    <p class="text-lg text-gray-400 mb-12 text-center mx-auto max-w-2xl">
-        These are the technologies I specialize in and use regularly in my projects.
-    </p>
+    <section id="stack" class="container mx-auto px-4 py-16">
+        <div class="flex items-center justify-center gap-4 mb-6">
+            <CodeIcon/>
+            <h2 class="text-4xl font-bold text-gray-100">Technical Stack</h2>
+        </div>
+        <p class="text-lg text-gray-400 mb-12 text-center mx-auto max-w-2xl">
+            These are the technologies I specialize in and use regularly in my projects.
+        </p>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {categories.map(category => (
-                <div class="group bg-gradient-to-br from-[#1E2028] to-[#2A2D3A] p-8 rounded-xl shadow-xl border border-gray-700 hover:border-purple-500 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/20 hover:-translate-y-2">
-                    <div class="flex items-center mb-6">
-                        <div class="w-3 h-3 bg-purple-500 rounded-full mr-3 group-hover:bg-purple-400 transition-colors duration-300"></div>
-                        <h3 class="text-2xl font-bold text-gray-200 group-hover:text-white transition-colors duration-300">{category.name}</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {categories.map(category => (
+                    <div class="group bg-gradient-to-br from-[#1E2028] to-[#2A2D3A] p-8 rounded-xl shadow-xl border border-gray-700 hover:border-purple-500 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/20 hover:-translate-y-2">
+                        <div class="flex items-center mb-6">
+                            <div class="w-3 h-3 bg-purple-500 rounded-full mr-3 group-hover:bg-purple-400 transition-colors duration-300"></div>
+                            <h3 class="text-2xl font-bold text-gray-200 group-hover:text-white transition-colors duration-300">{category.name}</h3>
+                        </div>
+                        <div class="flex flex-wrap justify-center bg-transparent p-4 rounded-lg">
+                            <img
+                                    src={`https://skillicons.dev/icons?i=${category.skills.join(',')}&theme=dark`}
+                                    alt={`${category.name} Skills`}
+                                    class="transition-transform duration-300 group-hover:scale-105"
+                            />
+                        </div>
+                        <div class="mt-4 text-center">
+                            <span class="text-sm text-purple-400 font-medium">{category.skills.length} technologies</span>
+                        </div>
                     </div>
-                    <div class="flex flex-wrap justify-center bg-transparent p-4 rounded-lg">
-                        <img
-                                src={`https://skillicons.dev/icons?i=${category.skills.join(',')}&theme=dark`}
-                                alt={`${category.name} Skills`}
-                                class="transition-transform duration-300 group-hover:scale-105"
-                        />
-                    </div>
-                    <div class="mt-4 text-center">
-                        <span class="text-sm text-purple-400 font-medium">{category.skills.length} technologies</span>
-                    </div>
-                </div>
-        ))}
-    </div>
-</section>
+            ))}
+        </div>
+    </section>

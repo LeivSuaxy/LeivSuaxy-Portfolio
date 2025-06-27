@@ -1,28 +1,31 @@
 ---
 import HomeIcon from "./icons/HomeIcon.astro"
-import ContactIcon from "./icons/ContactIcon.astro"
-import ProjectIcon from "./icons/ProjectIcon.astro"
+import ContactIcon from "./icons/ContactIcon.astro";
+import ExperienceIcon from "./icons/ExperienceIcon.astro";
 import SkillsIcon from "./icons/SkillsIcon.astro"
 import AboutMeIcon from "./icons/AboutMeIcon.astro"
+import ClipboardIcon from "./icons/ClipboardIcon.astro";
+import NavCodeIcon from "./icons/NavCodeIcon.astro";
+import NavProjectIcon from "./icons/NavProjectIcon.astro";
 
 const navbarItems = [
     {
-        icon: HomeIcon,
-        href: '#main',
-        tooltip: 'Home'
-    },
-    {
-        icon: AboutMeIcon,
+        icon: ClipboardIcon,
         href: '#services',
         tooltip: 'About Me'
     },
     {
-        icon: ProjectIcon,
+        icon:ExperienceIcon,
+        href: '#experience',
+        tooltip: 'Experience'
+    },
+    {
+        icon: NavProjectIcon,
         href: '#projects',
         tooltip: 'Projects'
     },
     {
-        icon: SkillsIcon,
+        icon: NavCodeIcon,
         href: '#stack',
         tooltip: 'Skills'
     },
@@ -215,16 +218,23 @@ const navbarItems = [
 
 <script>
     document.querySelectorAll('#bar-container a').forEach(anchor => {
-        anchor.addEventListener('click', function(this: HTMLAnchorElement, e: Event) {
+        anchor.addEventListener('click', (e: Event) => {
             e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
+            const target = e.currentTarget as HTMLAnchorElement;
+            const targetId = target.getAttribute('href');
 
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop,
-                    behavior: 'smooth'
-                });
+            if (targetId) {
+                const targetElement = document.querySelector(targetId) as HTMLElement;
+
+                if (targetElement) {
+                    const elementPosition = targetElement.offsetTop;
+                    const offsetPosition = elementPosition - 80;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
             }
         });
     });

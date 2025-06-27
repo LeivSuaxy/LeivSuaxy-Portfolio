@@ -6,15 +6,17 @@ import Experience from "../components/Experience.astro";
 import Projects from "../components/Projects.astro";
 import Stack from "../components/Stack.astro";
 import Contact from "../components/Contact.astro";
+import ScrollToTopButton from "../components/ScrollToTopButton.astro";
 ---
 
 <Layout>
     <div class="flex flex-col gap-24 pb-24">
-        <Hero id="main"/>
-        <Services id="services"/>
-        <Experience id="experience"/>
-        <Projects id="projects"/>
-        <Stack id="stack"/>
-        <Contact id="contact"/>
+        <Hero/>
+        <Services/>
+        <Experience/>
+        <Projects/>
+        <Stack/>
+        <Contact/>
     </div>
+    <ScrollToTopButton/>
 </Layout>

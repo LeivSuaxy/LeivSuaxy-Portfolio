@@ -1,0 +1,41 @@
+---
+
+---
+
+<button id="scroll-to-top"
+        class="fixed bottom-8 right-8 w-12 h-12 bg-[#2A2D3A] hover:bg-purple-500 text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 opacity-0 invisible hover:-translate-y-0.5 z-50">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7 14L12 9L17 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round"/>
+    </svg>
+</button>
+
+<style>
+    .scroll-to-top-btn.visible {
+        opacity: 1;
+        visibility: visible;
+    }
+</style>
+
+<script>
+    const scrollToTopBtn = document.getElementById('scroll-to-top');
+
+    // Mostrar/ocultar botón según scroll
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            scrollToTopBtn?.classList.remove('opacity-0', 'invisible');
+            scrollToTopBtn?.classList.add('opacity-100', 'visible');
+        } else {
+            scrollToTopBtn?.classList.remove('opacity-100', 'visible');
+            scrollToTopBtn?.classList.add('opacity-0', 'invisible');
+        }
+    });
+
+    // Scroll al top al hacer click
+    scrollToTopBtn?.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>

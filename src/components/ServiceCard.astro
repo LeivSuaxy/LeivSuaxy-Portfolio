@@ -10,7 +10,7 @@ export interface Props {
 const { icon: Icon, title, description, categories } = Astro.props;
 ---
 
-<div class="card">
+<div class="card bg-gradient-to-br from-[#1E2028] to-[#2A2D3A] p-8 rounded-xl shadow-xl border border-gray-700 hover:border-purple-500 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/20 hover:-translate-y-2">
     <div class="icon-container">
         <Icon class="service-icon" />
     </div>
@@ -33,10 +33,9 @@ const { icon: Icon, title, description, categories } = Astro.props;
 <style>
     .card {
         width: 320px;
-        height: 350px;
+        min-height: 350px; /* Cambiar height por min-height */
         padding: 20px;
         color: white;
-        background: #1E2028;
         border-radius: 8px;
         display: flex;
         flex-direction: column;
