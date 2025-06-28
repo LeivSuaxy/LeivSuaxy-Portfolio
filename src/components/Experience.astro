@@ -1,8 +1,8 @@
 ---
-import { Image } from 'astro:assets';
 import ExperienceIcon from "./icons/ExperienceIcon.astro"
 import ExperienceCard from "./ExperienceCard.astro";
-import esakiImage from "../../public/esaki.png";
+import esakiImage from "../../public/esaki.webp";
+import akademosUci from "../../public/uci.webp";
 
 const experienceCards = [
     {
@@ -11,6 +11,14 @@ const experienceCards = [
         category: "E-Commerce",
         description: "System built on Nestjs with Payments integration, OAuth, and a custom admin panel.",
         url: "https://esaki-jrr.com",
+        team: "Startup",
+    },
+    {
+        image: akademosUci,
+        title: "Akademos",
+        category: "Student managment",
+        description: "Development of modules for the Academic Management System at the University of Informatics Sciences, Cuba.",
+        team: "Enterprise",
     },
 ]
 ---
@@ -22,16 +30,17 @@ const experienceCards = [
             Experience
         </h1>
     </div>
-    <div class="flex justify-center px-4 mt-3">
+    <div class="flex flex-col md:flex-row md:flex-wrap md:justify-center gap-6 px-4 mt-3">
         {
             experienceCards.map((card) => (
-                <ExperienceCard
-                    image={card.image}
-                    title={card.title}
-                    category={card.category}
-                    description={card.description}
-                    url={card.url}
-                />
+                    <ExperienceCard
+                            image={card.image}
+                            title={card.title}
+                            category={card.category}
+                            description={card.description}
+                            team={card.team}
+                            url={card.url}
+                    />
             ))
         }
     </div>
