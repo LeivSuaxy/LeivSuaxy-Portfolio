@@ -1,5 +1,5 @@
 ---
-import CodeIcon from "./icons/CodeIcon.astro"
+import CodeIcon from "./icons/CodeIcon.astro";
 import ProjectCard from "./ProjectCard.astro";
 import ProjectIcon from "./icons/ProjectIcon.astro";
 
@@ -15,7 +15,8 @@ interface Project {
 const projects: Project[] = [
     {
         title: "RFIDentity",
-        description: "A comprehensive RFID-based identity management system for secure access control and user authentication.",
+        description:
+            "A comprehensive RFID-based identity management system for secure access control and user authentication.",
         tags: ["Arduino", "Rust", "Python", "Qt", "SQLite"],
         githubUrl: "https://github.com/LeivSuaxy/IoT-Final-Project",
         images: [
@@ -23,21 +24,21 @@ const projects: Project[] = [
             "projects/rfidentity/2.webp",
             "projects/rfidentity/3.webp",
             "projects/rfidentity/4.webp",
-        ]
+        ],
     },
     {
         title: "pytoque",
-        description: "A Python library for manage petitions to the Eltoque API or scrap the website",
+        description:
+            "A Python library for manage petitions to the Eltoque API or scrap the website",
         tags: ["Python"],
         githubUrl: "https://github.com/LeivSuaxy/pytoque",
         liveUrl: "https://pypi.org/project/pytoque/",
-        images: [
-
-        ]
+        images: [],
     },
     {
         title: "E-vent Horizon",
-        description: "E-vent Horizon is a web application with the purpose of managing events and managing their assistance.",
+        description:
+            "E-vent Horizon is a web application with the purpose of managing events and managing their assistance.",
         tags: ["React", "Nextjs", "C#", "ASP.NET", "PostgreSQL"],
         githubUrl: "https://github.com/LeivSuaxy/e-vent-horizon-backend",
         liveUrl: "https://school-project-black-psi.vercel.app/",
@@ -46,30 +47,50 @@ const projects: Project[] = [
             "projects/event-horizon/2.webp",
             "projects/event-horizon/3.webp",
             "projects/event-horizon/4.webp",
-        ]
-    }
-]
+        ],
+    },
+    {
+        title: "POS System",
+        description:
+            "A Point of Sale system for managing sales, products, and dispatchers",
+        tags: ["C#", "ASP.NET", "PostgreSQL", "Blazor"],
+        images: ["projects/pos-system/1.webp"],
+    },
+    {
+        title: "Leiva Moto Stickers",
+        description: "Small business page developed for my father's business.",
+        tags: ["Astro", "NestJs", "Supabase"],
+        images: [
+            "projects/leiva-designs/1.webp",
+            "projects/leiva-designs/2.webp",
+            "projects/leiva-designs/3.webp",
+        ],
+        liveUrl: "https://leiva-moto-sticker.vercel.app/",
+    },
+];
 ---
 
 <section id="projects" class="container mx-auto px-4">
     <div class="flex items-center justify-center gap-4 mb-6">
-        <ProjectIcon/>
-        <h1 class="text-4xl font-bold text-gray-100">
-            Projects
-        </h1>
+        <ProjectIcon />
+        <h1 class="text-4xl font-bold text-gray-100">Projects</h1>
     </div>
     <div class="container flex items-center justify-center">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 mt-3">
-            {projects.map(project => (
+        <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 mt-3"
+        >
+            {
+                projects.map((project) => (
                     <ProjectCard
-                            title={project.title}
-                            description={project.description}
-                            tags={project.tags}
-                            githubUrl={project.githubUrl}
-                            liveUrl={project.liveUrl}
-                            images={project.images}
+                        title={project.title}
+                        description={project.description}
+                        tags={project.tags}
+                        githubUrl={project.githubUrl}
+                        liveUrl={project.liveUrl}
+                        images={project.images}
                     />
-            ))}
+                ))
+            }
         </div>
     </div>
 </section>
